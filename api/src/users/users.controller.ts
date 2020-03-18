@@ -4,26 +4,23 @@ import { Controller, Get } from "@nestjs/common";
 export class UsersController {
   @Get()
   findAll() {
-    return {
-      status: 200,
-      type: "user",
-      data: [
-        {
-          id: 1,
-          username: "sarriagada",
-          email: "sergio@hashdog.com"
-        },
-        {
-          id: 2,
-          username: "juan",
-          email: "juan@delamar.com"
-        },
-        {
-          id: 3,
-          username: "delacruz",
-          email: "guido@gmail.com"
-        }
-      ]
-    };
+    return [
+      {
+        type: "Overnight",
+        price: 25.99
+      },
+      {
+        type: "2-Day",
+        price: 9.99
+      },
+      {
+        type: "Postal",
+        price: 2.99
+      },
+      {
+        type: "On Shop",
+        price: 0.0
+      }
+    ];
   }
 }
