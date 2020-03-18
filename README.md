@@ -4,9 +4,9 @@ To build `docker-compose build`
 
 To run the server `docker-compose up`
 
-The api is running on http://localhost:3001/
+The api is running on http://localhost:3000/
 
-Open your browser and navigate to http://localhost:3000/ to show the app.
+Open your browser and navigate to http://localhost:4200/ to show the app.
 
 ## to use the internal comands for api follow the example below:
 
