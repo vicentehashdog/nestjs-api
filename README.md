@@ -4,8 +4,14 @@ To build `docker-compose build`
 
 To run the server `docker-compose up`
 
-Open your browser and navigate to http://localhost:3000/.
+The api is running on http://localhost:3001/
 
-## to use the internal comands follow the example below:
+Open your browser and navigate to http://localhost:3000/ to show the app.
 
-`CURRENT_UID=$(id -u):$(id -g) docker-compose run app nest generate controller`
+## to use the internal comands for api follow the example below:
+
+`CURRENT_UID=$(id -u):$(id -g) docker-compose run api nest g controller users`
+
+## to use the internal comands for the web app follow the example below:
+
+`CURRENT_UID=$(id -u):$(id -g) docker-compose run app ng add @angular/material`

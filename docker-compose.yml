@@ -1,16 +1,28 @@
 version: "3.7"
 services:
-  app:
+  api:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile
-    command: npm run start:dev
+    command: npm run start:dev --prefix ./api
     # THIS BIT!!!1!
     user: ${CURRENT_UID}
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/api
+      - /api/node_modules
     ports:
       - 3000:3000
     environment:
       - NODE_ENV=development
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    command: npm start --prefix app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
