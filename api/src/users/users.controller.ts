@@ -1,26 +1,15 @@
 import { Controller, Get } from "@nestjs/common";
+import { UserEntity } from "./user.entity";
+import { UsersService } from "./users.service";
 
 @Controller("users")
 export class UsersController {
+  constructor(
+    private readonly userService: UsersService
+  ) {}
+
   @Get()
-  findAll() {
-    return [
-      {
-        type: "Overnight",
-        price: 25.99
-      },
-      {
-        type: "2-Day",
-        price: 9.99
-      },
-      {
-        type: "Postal",
-        price: 2.99
-      },
-      {
-        type: "On Shop",
-        price: 0.0
-      }
-    ];
+  async findAll() {
+    return await this.userService.findAll();
   }
 }
