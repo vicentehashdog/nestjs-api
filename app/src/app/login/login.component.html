@@ -1,0 +1,21 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Angular 8 JWT Login Example</h4>
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          ngModel
+          required
+          #first="ngModel"
+          class="form-control"
+        />
+        <button class="btn btn-primary">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

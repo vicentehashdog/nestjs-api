@@ -1,0 +1,12 @@
+<div style="height: 200px; width: 600px;">
+  <div *ngFor="let message of messageList">
+    <div>{{message.id}}</div>
+    <div>{{message.content}}</div>
+  </div>
+</div>
+
+
+<form #f="ngForm" (ngSubmit)="sendMessage(f)" novalidate>
+  <input name="newMessage" ngModel required #first="ngModel">
+  <button>Submit</button>
+</form>

@@ -1,12 +1,13 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
+
 import { UsersModule } from "./users/users.module";
+import { MessagesModule } from "./message/messages.module";
 import { Connection } from "typeorm";
 
 import { UserEntity } from "./users/user.entity";
-
+import { MessageEntity } from "./message/message.entity";
+import { ChatGateway } from "./chat/chat.gateway";
 
 @Module({
   imports: [
@@ -18,14 +19,15 @@ import { UserEntity } from "./users/user.entity";
         username: 'postgres',
         password: 'postgres',
         database: 'test',
-        entities: [UserEntity],
+        entities: [UserEntity,MessageEntity],
         synchronize: true,
       }
     ),
-    UsersModule
+    UsersModule,
+    MessagesModule
   ],
-  controllers: [AppController],
-  providers: [AppService]
+  controllers: [],
+  providers: [ChatGateway]
 })
 export class AppModule {
   constructor(
